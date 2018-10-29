@@ -1,0 +1,11 @@
+when you join a voice channel, auto nicknames you to [name] then changes you back to your original name after you leave the server
+-note: all name changes should be monitored while the user is active in the voice chat, immediately rename to [name].
+https://discordpy.readthedocs.io/en/latest/api.html#discord.Client.change_nickname
+https://discordpy.readthedocs.io/en/latest/api.html#discord.on_member_update
+
+Music bot with react controls
+https://discordpy.readthedocs.io/en/latest/api.html#discord.VoiceClient.create_ytdl_player
+https://discordpy.readthedocs.io/en/latest/api.html#discord.Client.wait_for_reaction
+
+Instant String React:
+https://discordpy.readthedocs.io/en/latest/api.html#discord.Client.add_reaction
