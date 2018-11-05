@@ -1,3 +1,4 @@
+import asyncio
 import discord
 from discord.ext import commands
 
@@ -25,17 +26,28 @@ while TOKEN is None:
     TOKEN = getToken()
 
 #Hang's here until token file is confirmed
-
-client = commands.Bot(command_prefix = ".") 
+prefix = "."
+client = commands.Bot(command_prefix = prefix) 
 
 @client.event 
 async def on_ready():
     print("Bot Connected and is ready to recieve commands")
 
-@client.command(pass_context=True)
+@client.command(pass_context = True)
 async def copy(ctx):
-    await client.say(ctx.message.content[5:])
+    await client.say(ctx.message.content[len(prefix)+4:])
 
+@client.command(pass_context = True)
+async def clear(ctx, amount=10):
+    messages = []
+    async for message in client.logs_from(ctx.message.channel, limit = int(amount)):
+        messages.append(message)
+    await client.delete_messages(messages)
+
+@client.command()
+async def count(amount = 5):
+    for counter in range(amount):
+        await client.say(counter)
 
 
 client.run(TOKEN)
