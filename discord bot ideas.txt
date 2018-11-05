@@ -1,11 +1,62 @@
+Edit bot status details
+https://discordpy.readthedocs.io/en/latest/api.html#discord.Client.change_presence
+
 when you join a voice channel, auto nicknames you to [name] then changes you back to your original name after you leave the server
 -note: all name changes should be monitored while the user is active in the voice chat, immediately rename to [name].
 https://discordpy.readthedocs.io/en/latest/api.html#discord.Client.change_nickname
 https://discordpy.readthedocs.io/en/latest/api.html#discord.on_member_update
 
 Music bot with react controls
+https://discordpy.readthedocs.io/en/latest/api.html#discord.Client.join_voice_channel
 https://discordpy.readthedocs.io/en/latest/api.html#discord.VoiceClient.create_ytdl_player
+https://discordpy.readthedocs.io/en/latest/api.html#discord.Client.send_message
 https://discordpy.readthedocs.io/en/latest/api.html#discord.Client.wait_for_reaction
+https://discordpy.readthedocs.io/en/latest/api.html#discord.Reaction
+https://discordpy.readthedocs.io/en/latest/api.html#discord.Client.get_reaction_users
 
 Instant String React:
 https://discordpy.readthedocs.io/en/latest/api.html#discord.Client.add_reaction
+https://discordpy.readthedocs.io/en/latest/api.html#discord.Reaction
+
+Mute dark whenever he joins a channel
+https://discordpy.readthedocs.io/en/latest/api.html#discord.Client.server_voice_state
+
+auto voice disconnect
+Bot will make a voice channel, move client there, then delete the voice channel. Kicking the user out of voice chat.
+https://discordpy.readthedocs.io/en/latest/api.html#discord.Client.create_channel
+https://discordpy.readthedocs.io/en/latest/api.html#discord.Client.move_member
+https://discordpy.readthedocs.io/en/latest/api.html#discord.Client.delete_channel
+
+get's all the users in the current voice chat and invites them to a group call
+https://discordpy.readthedocs.io/en/latest/api.html#discord.Invite
+https://discordpy.readthedocs.io/en/latest/api.html#discord.CallMessage
+https://discordpy.readthedocs.io/en/latest/api.html#discord.GroupCall
+
+
+powerTier = [Ravs, Radar, Wewmate, Maclex] // Power tier isn't really necessary, maybe add and then have it as an option to enable in the future.
+if(powerTier[].index(Ravs) < powerTier.index(Radar))
+{
+    execute command
+} else{
+    drop command
+}
+
+
+
+keywordIndex(message)
+{
+    if(message == "~play")
+    {
+        youtubePlayer(message)
+    }
+}
+
+while(botOnline)
+{
+    listen for messages
+    listen for reacts // only if music player is active?
+    if(message starts with "~")
+    {
+        send message to keywordIndex
+    } else{ignore}
+}
