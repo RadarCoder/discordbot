@@ -26,12 +26,15 @@ while TOKEN is None:
 
 #Hang's here until token file is confirmed
 
-client = commands.Bot(command_prefix = "squirt ") 
+client = commands.Bot(command_prefix = ".") 
 
 @client.event 
 async def on_ready():
     print("Bot Connected and is ready to recieve commands")
 
+@client.command(pass_context=True)
+async def copy(ctx):
+    await client.say(ctx.message.content[5:])
 
 
 
