@@ -33,7 +33,7 @@ https://discordpy.readthedocs.io/en/latest/api.html#discord.CallMessage
 https://discordpy.readthedocs.io/en/latest/api.html#discord.GroupCall
 
 
-powerTier = [Ravs, Radar, Wewmate, Maclex] // Power tier isn't really necessary, maybe add and then have it as an option to enable in the future.
+powerTier = [Ravs, Radar, Cooper, Wewmate, Maclex] // Power tier isn't really necessary, maybe add and then have it as an option to enable in the future.
 if(powerTier[].index(Ravs) < powerTier.index(Radar))
 {
     execute command
