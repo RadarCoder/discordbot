@@ -1,4 +1,3 @@
-import asyncio
 import discord
 from discord.ext import commands
 
@@ -31,11 +30,21 @@ client = commands.Bot(command_prefix = prefix)
 
 @client.event 
 async def on_ready():
+    await client.change_presence(game=discord.Game(name="GnoMeD"))
     print("Bot Connected and is ready to recieve commands")
+
+
+# Utility Commands
 
 @client.command(pass_context = True)
 async def copy(ctx):
+    userMessage = False
     await client.say(ctx.message.content[len(prefix)+4:])
+    async for message in client.logs_from(ctx.message.channel, limit = 2):
+        if userMessage:
+            await client.delete_message(message)
+        else:
+            userMessage = True
 
 @client.command(pass_context = True)
 async def clear(ctx, amount=10):
@@ -48,6 +57,24 @@ async def clear(ctx, amount=10):
 async def count(amount = 5):
     for counter in range(amount):
         await client.say(counter)
+
+#Music Bot Commands
+'''
+@client.command(pass_context = True)
+async def join(ctx):
+    channel = ctx.message.author.voice_channel
+    if channel == None:
+        await client.say("Join a voice chat first nig")
+        return False
+    await client.join_voice_channel(channel)
+
+@client.command(pass_context = True)
+async def leave(ctx):
+    server = ctx.message.server
+    voice_client = client.voice_client_in(server)
+    await voice_client.disconnect()
+    
+'''
 
 
 client.run(TOKEN)
