@@ -1,2 +1,2 @@
 # discordbot
-using discord.js
+using discord.py
