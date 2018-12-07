@@ -38,13 +38,10 @@ async def on_ready():
 
 @client.command(pass_context = True)
 async def copy(ctx):
-    userMessage = False
-    await client.say(ctx.message.content[len(prefix)+4:])
-    async for message in client.logs_from(ctx.message.channel, limit = 2):
-        if userMessage:
+    
+    async for message in client.logs_from(ctx.message.channel, limit = 1):
             await client.delete_message(message)
-        else:
-            userMessage = True
+            await client.say(ctx.message.content[len(prefix)+4:])
 
 @client.command(pass_context = True)
 async def clear(ctx, amount=10):
